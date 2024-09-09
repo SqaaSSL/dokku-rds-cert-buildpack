@@ -6,10 +6,10 @@ ENV_DIR=$3
 
 echo "-----> RDS Certificate Buildpack: Downloading RDS CA certificate"
 mkdir -p $HOME/certificates
-curl -s https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem -o $HOME/certificates/rds-ca-bundle.pem
+curl -s https://truststore.pki.rds.amazonaws.com/eu-west-3/eu-west-3-bundle.pem -o $HOME/certificates/eu-west-3-bundle.pem
 
 echo "-----> RDS Certificate Buildpack: Setting NODE_EXTRA_CA_CERTS environment variable"
 mkdir -p $BUILD_DIR/.profile.d
-echo "export NODE_EXTRA_CA_CERTS=\$HOME/certificates/rds-ca-bundle.pem" >> $BUILD_DIR/.profile.d/rds-cert.sh
+echo "export NODE_EXTRA_CA_CERTS=\$HOME/certificates/eu-west-3-bundle.pem" >> $BUILD_DIR/.profile.d/rds-cert.sh
 
 echo "-----> RDS Certificate Buildpack: Complete"
